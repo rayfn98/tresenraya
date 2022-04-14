@@ -1,0 +1,60 @@
+/* Estilos de la Grilla del Juego  */
+
+.game-grid {
+    background-color: #fff;
+    width: 80vw;
+    height: 80vw;
+    border-radius: 20px;
+    margin: auto;
+    margin-top: 2rem;
+    max-width: 650px;
+    max-height: 650px;
+    display: flex;
+    overflow: hidden;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.6rem;
+    transform: scale(0);
+    opacity: 0;
+    transition: transform ease-in-out 0.5s, opacity ease-in-out 0.5s, filter ease-in-out 0.1s;
+}
+
+.game-grid.started {
+    transform: scale(1);
+    opacity: 1;
+}
+
+.game-grid::after {
+    content: "Tu turno";
+    position: absolute;
+    top: 5px;
+    color: blueviolet;
+    background-color: chartreuse;
+    padding: 0.5rem;
+    border-radius: 10px;
+}
+
+.game-grid.disabled {
+    user-select: none;
+    filter: contrast(1) brightness(0.8);
+}
+
+.game-grid.disabled::after {
+    display: none;
+}
+
+.game-grid .item {
+    height: 32%;
+    width: 32%;
+    border-radius: 10px;
+    cursor: pointer;
+    background-color: darkslateblue;
+    background-size: 85%;
+    background-repeat: no-repeat;
+    background-position: center center;
+}
+
+.game-grid .item.selected {
+    cursor: not-allowed;
+}
